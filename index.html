@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SISE - Gestión de Usuarios</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 40px auto; padding: 20px; background: #f5f5f5; }
+        h1 { color: #0d6efd; }
+        h2 { color: #333; border-bottom: 2px solid #0d6efd; padding-bottom: 8px; }
+        form { background: #fff; padding: 20px; border-radius: 8px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        label { display: block; margin-bottom: 4px; font-weight: bold; color: #555; }
+        input, select { width: 100%; padding: 8px; margin-bottom: 12px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        button { padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; font-size: 14px; }
+        .btn-insertar { background: #198754; color: white; }
+        .btn-consultar { background: #0d6efd; color: white; }
+        .btn-actualizar { background: #ffc107; color: #333; }
+        .btn-eliminar { background: #dc3545; color: white; }
+    </style>
+</head>
+<body>
+    <h1>SISE - Sistema Integrador de Servicios Empresariales</h1>
+    <h2>Gestión de Usuarios</h2>
+
+    <!-- Formulario Insertar -->
+    <form action="usuarios" method="POST">
+        <h3>Insertar Usuario</h3>
+        <input type="hidden" name="accion" value="insertar">
+        <label>Nombre:</label>
+        <input type="text" name="nombre" placeholder="Ingresa el nombre" required>
+        <label>Correo:</label>
+        <input type="email" name="correo" placeholder="Ingresa el correo" required>
+        <label>Contraseña:</label>
+        <input type="password" name="password" placeholder="Ingresa la contraseña" required>
+        <label>Rol:</label>
+        <select name="rol">
+            <option value="admin">Administrador</option>
+            <option value="cliente">Cliente</option>
+            <option value="empresa">Empresa</option>
+        </select>
+        <button type="submit" class="btn-insertar">Insertar Usuario</button>
+    </form>
+
+    <!-- Formulario Consultar -->
+    <form action="usuarios" method="GET">
+        <h3>Consultar Usuarios</h3>
+        <input type="hidden" name="accion" value="consultar">
+        <button type="submit" class="btn-consultar">Ver Todos los Usuarios</button>
+    </form>
+
+    <!-- Formulario Actualizar -->
+    <form action="usuarios" method="POST">
+        <h3>Actualizar Usuario</h3>
+        <input type="hidden" name="accion" value="actualizar">
+        <label>ID del Usuario:</label>
+        <input type="number" name="id" placeholder="ID del usuario a actualizar" required>
+        <label>Nuevo Nombre:</label>
+        <input type="text" name="nombre" placeholder="Nuevo nombre" required>
+        <label>Nuevo Correo:</label>
+        <input type="email" name="correo" placeholder="Nuevo correo" required>
+        <label>Nueva Contraseña:</label>
+        <input type="password" name="password" placeholder="Nueva contraseña" required>
+        <label>Nuevo Rol:</label>
+        <select name="rol">
+            <option value="admin">Administrador</option>
+            <option value="cliente">Cliente</option>
+            <option value="empresa">Empresa</option>
+        </select>
+        <button type="submit" class="btn-actualizar">Actualizar Usuario</button>
+    </form>
+
+    <!-- Formulario Eliminar -->
+    <form action="usuarios" method="POST">
+        <h3>Eliminar Usuario</h3>
+        <input type="hidden" name="accion" value="eliminar">
+        <label>ID del Usuario a Eliminar:</label>
+        <input type="number" name="id" placeholder="ID del usuario a eliminar" required>
+        <button type="submit" class="btn-eliminar">Eliminar Usuario</button>
+    </form>
+</body>
+</html>
